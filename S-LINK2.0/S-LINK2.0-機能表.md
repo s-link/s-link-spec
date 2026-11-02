@@ -2,8 +2,8 @@
 
 | 項目 | 内容 |
 |---|---|
-| 文書の版 | 0.1（DRAFT） |
-| 発行日 | 2026-10-27 |
+| 文書の版 | 0.2（DRAFT・未公開） |
+| 発行日 | 未定 |
 | 機能表の版（`function_table_revision`） | 1 |
 
 文書の版は、この機能表の文章の改訂を示す番号です。`HELLO` が返す `function_table_revision` とは独立しています。
@@ -66,8 +66,8 @@
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | `0x0200` | `VOLT` | 電圧 | Voltage | `read` | `quantity` | V | value S28 | −3 | ±134,217.727 V | 1 mV | その瞬間の電圧。符号つき。直流回路や、READ を繰り返して行う波形観測に使う |
 | `0x0201` | `VOLT_RMS` | 電圧（実効値） | Root mean square voltage | `read` | `quantity` | V | value U28 | −3 | 0 – 268,435.455 V | 1 mV | 電圧の実効値。交流の測定に使う |
-| `0x0202` | `CURRENT` | 電流 | Current | `read` | `quantity` | A | value S28 | −6 | ±134.217727 A | 1 µA | その瞬間の電流。符号つき。オームの法則に使う |
-| `0x0203` | `CURRENT_RMS` | 電流（実効値） | Root mean square current | `read` | `quantity` | A | value U28 | −6 | 0 – 268.435455 A | 1 µA | 電流の実効値。クランプメーターはこれを返す |
+| `0x0202` | `CURRENT` | 電流 | Current | `read` | `quantity` | A | value S28 | −6 | ±134.217727 A | 1 µA | その瞬間の電流。符号つき |
+| `0x0203` | `CURRENT_RMS` | 電流（実効値） | Root mean square current | `read` | `quantity` | A | value U28 | −6 | 0 – 268.435455 A | 1 µA | 電流の実効値。交流の測定に使う |
 | `0x0204` | `RESIST` | 抵抗 | Resistance | `read` | `quantity` | ohm | value U28 | −2 | 0 – 2,684,354.55 Ω | 0.01 Ω | 抵抗。電熱線や直列並列の合成抵抗に使う |
 | `0x0205` | `CAP` | 静電容量 | Capacitance | `read` | `quantity` | F | value U28 | −10 | 0 – 0.0268435455 F | 100 pF | 静電容量。コンデンサーの容量測定や、抵抗を使った放電特性の確認に使う |
 | `0x0206` | `IND` | インダクタンス | Inductance | `read` | `quantity` | H | value U28 | −7 | 0 – 26.8435455 H | 0.1 µH | インダクタンス。自己誘導や、コイルとコンデンサーで構成する共振回路の測定に使う |
