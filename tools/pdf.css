@@ -1,0 +1,38 @@
+@page portrait { size: A4 portrait; margin: 18mm 16mm 20mm; }
+@page landscape { size: A4 landscape; margin: 18mm 16mm 20mm; }
+* { box-sizing: border-box; }
+html { color: #161616; }
+body { margin: 0; font-family: 'SlinkJP', sans-serif; font-size: 10.5pt; line-height: 1.65; }
+.cover, .specification { page: portrait; }
+.cover { break-after: page; }
+.functions { page: landscape; break-before: page; }
+h1, h2, h3, h4, .minor-title { break-after: avoid; }
+h1 { font-size: 17.85pt; line-height: 1.4; margin: 0 0 12pt; }
+h2 { font-size: 14.17pt; line-height: 1.4; margin: 18pt 0 9pt; padding-bottom: 4pt; border-bottom: 1px solid #333; }
+h3 { font-size: 11.76pt; line-height: 1.45; margin: 15pt 0 7pt; }
+h4 { font-size: 10.5pt; margin: 12pt 0 6pt; }
+p { margin: 7pt 0; orphans: 3; widows: 3; }
+.minor-title { margin: 11pt 0 5pt; }
+ul, ol { margin: 6pt 0; padding-left: 21pt; }
+li { margin: 2pt 0; }
+a { color: #2465a3; text-decoration: none; }
+hr { border: 0; border-top: .6px solid #999; margin: 15pt 0; }
+code { font-family: var(--mono), 'SlinkJP', monospace; font-size: .9em; background: #f5f5f5; padding: 0 1.5px; }
+pre { margin: 10pt 0; padding: 7pt; border: .6px solid #dedede; background: #f5f5f5; break-inside: avoid; }
+pre code { font-size: 8.5pt; line-height: 1.55; padding: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+table { border-collapse: collapse; width: 100%; font-size: 9.66pt; line-height: 1.5; margin: 9pt 0 12pt; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th, td { border: .6px solid #999; padding: 3px 5px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+th { background: #ededed; font-weight: 700; }
+.functions table { font-size: 7.8pt; }
+.functions .function-list { font-size: 8pt; table-layout: fixed; }
+.function-list th, .function-list td { padding: 3px 4px; overflow-wrap: normal; }
+.function-list td:nth-child(1), .function-list td:nth-child(2), .nobr { white-space: nowrap; }
+.function-list td:nth-child(12) { overflow-wrap: anywhere; }
+.function-list code { padding: 0; }
+.cover h1 { font-size: 23.1pt; line-height: 1.4; margin: 0 0 12pt; }
+.cover .edition { font-size: 11.55pt; margin: 0 0 33pt; }
+.cover h2 { font-size: 10.5pt; border: 0; padding: 0; margin: 0 0 7pt; }
+.cover table { font-size: 9.66pt; margin: 0 0 9pt; }
+.cover .repository { font-size: 8.5pt; color: #444; }
