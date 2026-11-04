@@ -11,13 +11,13 @@ S-LINKは、教育用フィジカルコンピューティングにおいて、�
 
 ### 公開資料
 
-現在の文書の版: **0.1（DRAFT、2026-10-27）**。版の一覧は[Releases](https://github.com/s-link/s-link-spec/releases)をご覧ください。文書の版は、通信上の版番号（S-LINK 2.0、機能表の版 1）とは独立しています。
+現在の文書の版: **0.2（DRAFT、2026-11-04）**。版の一覧は[Releases](https://github.com/s-link/s-link-spec/releases)をご覧ください。文書の版は、通信上の版番号（S-LINK 2.0、機能表の版 2）とは独立しています。
 
 | ファイル | 内容 |
 |---|---|
 | [S-LINK 2.0 規格書](S-LINK2.0/S-LINK2.0-規格書.md) | S-LINKの通信部分を実装するための仕様 |
 | [S-LINK 2.0 機能表](S-LINK2.0/S-LINK2.0-機能表.md) | 各機能の番号、単位、データ形式、動作 |
-| [規格書・機能表 DRAFT PDF](S-LINK2.0/S-LINK2.0-規格書・機能表.pdf) | 2文書をまとめた閲覧用PDF。生成元の版（タグ）を記載 |
+| [規格書・機能表 DRAFT PDF](S-LINK2.0/S-LINK2.0-規格書・機能表.pdf) | 2文書をまとめた閲覧用PDF。生成元のコミットを記載 |
 
 ### S-LINK対応について
 
@@ -53,13 +53,13 @@ S-LINK is a communication standard intended to connect educational physical-comp
 
 ### Published documents
 
-Current document revision: **0.1 (DRAFT, 2026-10-27)**. See [Releases](https://github.com/s-link/s-link-spec/releases) for all revisions. The document revision is independent of the protocol version numbers (S-LINK 2.0, function table revision 1).
+Current document revision: **0.2 (DRAFT, 2026-11-04)**. See [Releases](https://github.com/s-link/s-link-spec/releases) for all revisions. The document revision is independent of the protocol version numbers (S-LINK 2.0, function table revision 2).
 
 | File | Description |
 |---|---|
 | [S-LINK 2.0 Specification](S-LINK2.0/S-LINK2.0-規格書.md) | Protocol specification for implementing S-LINK communications |
 | [S-LINK 2.0 Function Table](S-LINK2.0/S-LINK2.0-機能表.md) | Function identifiers, units, data formats, and behavior |
-| [Specification and Function Table, DRAFT PDF](S-LINK2.0/S-LINK2.0-規格書・機能表.pdf) | Both documents combined for reading. The source revision (tag) is noted inside |
+| [Specification and Function Table, DRAFT PDF](S-LINK2.0/S-LINK2.0-規格書・機能表.pdf) | Both documents combined for reading. The source commit is noted inside |
 
 ### What S-LINK compatibility means
 
