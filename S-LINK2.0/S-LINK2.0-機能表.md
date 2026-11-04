@@ -2,11 +2,8 @@
 
 | 項目 | 内容 |
 |---|---|
-| 文書の版 | 0.1（DRAFT） |
-| 発行日 | 2026-10-27 |
-| 機能表の版（`function_table_revision`） | 1 |
-
-文書の版は、この機能表の文章の改訂を示す番号です。`HELLO` が返す `function_table_revision` とは独立しています。
+| 文書の版 | 0.2（DRAFT） |
+| 発行日 | 2026-11-04 |
 
 機能表では、機能番号ごとに単位、データ形式、動作を定めます。
 メッセージのバイト構成とホスト・デバイスの動作は、[S-LINK 2.0 規格書](S-LINK2.0-規格書.md) が定めます。
@@ -16,10 +13,10 @@
 
 - 機能番号は U14
 - 指数はチャンネルごとに `CAPABILITY` の `exponent` が宣言する
-- 版は 1。`HELLO` が返す `function_table_revision` はこの値
+- この機能表（版 0.2）に対応する `function_table_revision` は 1
 
 ```
-機能   61 件（入力 48 / 出力 13）
+機能   63 件（入力 50 / 出力 13）
 ```
 
 ---
@@ -66,8 +63,8 @@
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | `0x0200` | `VOLT` | 電圧 | Voltage | `read` | `quantity` | V | value S28 | −3 | ±134,217.727 V | 1 mV | その瞬間の電圧。符号つき。直流回路や、READ を繰り返して行う波形観測に使う |
 | `0x0201` | `VOLT_RMS` | 電圧（実効値） | Root mean square voltage | `read` | `quantity` | V | value U28 | −3 | 0 – 268,435.455 V | 1 mV | 電圧の実効値。交流の測定に使う |
-| `0x0202` | `CURRENT` | 電流 | Current | `read` | `quantity` | A | value S28 | −6 | ±134.217727 A | 1 µA | その瞬間の電流。符号つき。オームの法則に使う |
-| `0x0203` | `CURRENT_RMS` | 電流（実効値） | Root mean square current | `read` | `quantity` | A | value U28 | −6 | 0 – 268.435455 A | 1 µA | 電流の実効値。クランプメーターはこれを返す |
+| `0x0202` | `CURRENT` | 電流 | Current | `read` | `quantity` | A | value S28 | −6 | ±134.217727 A | 1 µA | その瞬間の電流。符号つき |
+| `0x0203` | `CURRENT_RMS` | 電流（実効値） | Root mean square current | `read` | `quantity` | A | value U28 | −6 | 0 – 268.435455 A | 1 µA | 電流の実効値。交流の測定に使う |
 | `0x0204` | `RESIST` | 抵抗 | Resistance | `read` | `quantity` | ohm | value U28 | −2 | 0 – 2,684,354.55 Ω | 0.01 Ω | 抵抗。電熱線や直列並列の合成抵抗に使う |
 | `0x0205` | `CAP` | 静電容量 | Capacitance | `read` | `quantity` | F | value U28 | −10 | 0 – 0.0268435455 F | 100 pF | 静電容量。コンデンサーの容量測定や、抵抗を使った放電特性の確認に使う |
 | `0x0206` | `IND` | インダクタンス | Inductance | `read` | `quantity` | H | value U28 | −7 | 0 – 26.8435455 H | 0.1 µH | インダクタンス。自己誘導や、コイルとコンデンサーで構成する共振回路の測定に使う |
@@ -113,6 +110,8 @@
 | `0x0408` | `STRAIN` | ひずみ | Strain | `read` | `quantity` | 1 | value S28 | −7 | ±13.4217727 | 0.0000001 | ひずみ（ΔL/L）。材料の弾性や変形の評価に使う |
 | `0x0409` | `MASS` | 質量 | Mass | `read` | `quantity` | kg | value S28 | −6 | ±134.217727 kg | 1 mg | 質量。符号つき。反応や溶解に伴う質量変化の測定に使う |
 | `0x040A` | `ENCODER` | 回転量 | Rotation | `read` | `quantity` | deg | value S28 | −1 | ±13,421,772.7 deg | 0.1 deg | 軸の回転量。電源投入時を 0 とする累積量。負で逆回転 |
+| `0x040B` | `POSITION` | 位置 | Position | `read` | `quantity` | mm | x / y / z S28 | 0 | 各軸 −134,217,728 – 134,217,727 mm | 1 mm | 原点からの位置。同じ測定結果の x / y / z を一組で返し、すべてに同じ exponent を適用する。原点と各軸の正の向きは機器の説明書が定める。2 次元の機器では z を 0 とする |
+| `0x040C` | `GEO_POSITION` | 緯度・経度 | Geographic position | `read` | `quantity` | deg | latitude / longitude S35 | −7 | 緯度 −90 – 90 deg / 経度 −180 – 180 deg | 0.0000001 deg | [WGS 84](#引用規格) による緯度・経度。同じ測位結果の latitude（緯度）と longitude（経度）を一組で返し、両方に同じ exponent を適用する。緯度は −90〜90 度、経度は −180〜180 度とし、北緯・東経を正、南緯・西経を負とする。exponent は −7 以上とする。未測位などで有効な位置が得られないときは ERROR(MEASURE_FAILED) を返す |
 
 ## 検知・操作・生体
 
@@ -154,3 +153,9 @@
 | `0x0504 MAGNET_NEAR` | 磁石なし | 磁石あり |
 | `0x1003 RELAY` | 開く | 閉じる |
 | `0x1009 SOLENOID` | 戻す | 押す |
+
+## 引用規格
+
+| 文書 | 版・発行元 | この表で参照する内容 |
+|---|---|---|
+| [Department of Defense, World Geodetic System 1984, Its Definition and Relationships with Local Geodetic Systems](https://earth-info.nga.mil/?action=wgs84&dir=wgs84) | NGA.STND.0036_1.0.0_WGS84、Version 1.0.0、2014-07-08、National Geospatial-Intelligence Agency（NGA） | `GEO_POSITION` で使う WGS 84 の緯度・経度 |
