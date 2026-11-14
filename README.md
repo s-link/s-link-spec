@@ -11,7 +11,7 @@ S-LiNKは、教育用フィジカルコンピューティングにおいて、�
 
 ### 公開資料
 
-現在の文書の版: **0.2（DRAFT、2026-11-04）**。版の一覧は[Releases](https://github.com/s-link/s-link-spec/releases)をご覧ください。
+現在の文書の版: **0.3（DRAFT、2026-11-15）**。版の一覧は[Releases](https://github.com/s-link/s-link-spec/releases)をご覧ください。
 
 | ファイル | 内容 |
 |---|---|
@@ -53,7 +53,7 @@ S-LiNK is a communication standard intended to connect educational physical-comp
 
 ### Published documents
 
-Current document revision: **0.2 (DRAFT, 2026-11-04)**. See [Releases](https://github.com/s-link/s-link-spec/releases) for all revisions.
+Current document revision: **0.3 (DRAFT, 2026-11-15)**. See [Releases](https://github.com/s-link/s-link-spec/releases) for all revisions.
 
 | File | Description |
 |---|---|
