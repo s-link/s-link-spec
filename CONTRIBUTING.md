@@ -1,4 +1,4 @@
-# S-LINKへの提案・報告 / Proposals and reports for S-LINK
+# S-LiNKへの提案・報告 / Proposals and reports for S-LiNK
 
 > **Language / 言語:** 日本語と英語を併記します。内容に差異がある場合は、管理者が意図を確認します。 / Japanese and English are provided together. If the two versions differ, maintainers will clarify the intended meaning.
 
@@ -23,7 +23,7 @@
 
 ### 3. 仕様変更の考え方
 
-S-LINKは教育現場での安定した運用を重視します。通信仕様の変更は、既存の対応製品、ライブラリ、教材への影響と移行方法を確認したうえで判断します。互換性を損なう変更は慎重に扱い、採用する場合は移行期間や互換性の方針をあわせて示します。
+S-LiNKは教育現場での安定した運用を重視します。通信仕様の変更は、既存の対応製品、ライブラリ、教材への影響と移行方法を確認したうえで判断します。互換性を損なう変更は慎重に扱い、採用する場合は移行期間や互換性の方針をあわせて示します。
 
 仕様書の更新と、正式な版の発行は別です。正式な版とその公開日は、リポジトリのリリース情報等で明示します。
 
@@ -54,7 +54,7 @@ Until then, please submit corrections and proposed changes as Issues. Maintainer
 
 ### 3. Approach to specification changes
 
-S-LINK prioritizes stable use in educational settings. Changes to the communication specification are decided after reviewing their impact on existing compatible products, libraries, and learning materials, and how migration would work. Changes that affect compatibility are treated cautiously; if adopted, a transition period and compatibility policy will be provided.
+S-LiNK prioritizes stable use in educational settings. Changes to the communication specification are decided after reviewing their impact on existing compatible products, libraries, and learning materials, and how migration would work. Changes that affect compatibility are treated cautiously; if adopted, a transition period and compatibility policy will be provided.
 
 Updating the specification text and publishing an official version are separate steps. Official versions and their release dates are identified in repository releases or equivalent notices.
 

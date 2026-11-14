@@ -25,9 +25,11 @@ from markdown_it import MarkdownIt
 from markdown_it.token import Token
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCS = [Path('S-LINK2.0/S-LINK2.0-規格書.md'), Path('S-LINK2.0/S-LINK2.0-機能表.md')]
+DOCS = [Path('S-LiNK2.0/S-LiNK2.0-規格書.md'), Path('S-LiNK2.0/S-LiNK2.0-機能表.md')]
 REFERENCE = '5e82a056166612e8f42d27940da62dbc424cc032'
-PDF_PATH = Path('S-LINK2.0/S-LINK2.0-規格書・機能表.pdf')
+PDF_PATH = Path('S-LiNK2.0/S-LiNK2.0-規格書・機能表.pdf')
+# Path of the PDF inside the REFERENCE commit, which predates the S-LiNK spelling.
+REFERENCE_PDF_PATH = 'S-LINK2.0/S-LINK2.0-規格書・機能表.pdf'
 # IBM/plex commit 71f558992315a12ca1f06a2215d57962a1992162, OFL fonts.
 FONT_BLOBS = {'Regular': '226ec05eb0032434f82b5fa0a69d8c6ca72f439e', 'Bold': '7861e098f6a069c696edd806a406ad3a8ccb875d'}
 REPOSITORY = 'https://github.com/s-link/s-link-spec'
@@ -56,7 +58,7 @@ def fonts(cache: Path) -> tuple[str, str]:
         if blob != FONT_BLOBS[style]:
             raise ValueError(f'Unexpected font contents: {path}')
         css.append(f"@font-face {{font-family:SlinkJP; font-weight:{weight}; src:url('{path.as_uri()}')}}")
-    reference = fitz.open(stream=git('show', f'{REFERENCE}:{PDF_PATH}'), filetype='pdf')
+    reference = fitz.open(stream=git('show', f'{REFERENCE}:{REFERENCE_PDF_PATH}'), filetype='pdf')
     seen, families, counts = set(), [], {400: 0, 700: 0}
     for page in reference:
         for info in page.get_fonts():
@@ -188,16 +190,16 @@ def main() -> None:
     else:
         sources = ''.join(f'<tr><td><code>{html.escape(str(source))}</code></td><td>文書の版 {revision}</td><td><a href="{REPOSITORY}/blob/{commit}/{quote(str(source))}"><code>{commit[:12]}</code></a></td></tr>' for source, commit in zip(DOCS, commits))
         columns = '<th>ファイル</th><th>版</th><th>コミット</th>'
-    cover = f'<section class="cover"><h1>S-LINK 2.0 規格書・機能表</h1><p class="edition">文書の版 {revision}（DRAFT） ／ 発行日 {date}</p><h2>生成元</h2><table><thead><tr>{columns}</tr></thead><tbody>{sources}</tbody></table><p class="repository">リポジトリ: <a href="{REPOSITORY}">{REPOSITORY}</a></p></section>'
+    cover = f'<section class="cover"><h1>S-LiNK 2.0 規格書・機能表</h1><p class="edition">文書の版 {revision}（DRAFT） ／ 発行日 {date}</p><h2>生成元</h2><table><thead><tr>{columns}</tr></thead><tbody>{sources}</tbody></table><p class="repository">リポジトリ: <a href="{REPOSITORY}">{REPOSITORY}</a></p></section>'
     contents = cover + f'<section class="specification" id="specification">{markdown(texts[0])}</section><section class="functions" id="function-table">{markdown(texts[1], True)}</section>'
-    document = f'<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>S-LINK 2.0 規格書・機能表 — DRAFT</title><style>{font_css}\n:root{{--mono:{mono}}}\n{css}</style></head><body>{contents}</body></html>'
+    document = f'<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>S-LiNK 2.0 規格書・機能表 — DRAFT</title><style>{font_css}\n:root{{--mono:{mono}}}\n{css}</style></head><body>{contents}</body></html>'
     with tempfile.TemporaryDirectory(prefix='slink-pdf-') as work:
         work = Path(work)
         source_html, raw_pdf = work / 'document.html', work / 'raw.pdf'
         source_html.write_text(document)
         subprocess.run(['node', str(ROOT / 'tools/print_pdf.mjs'), chromium(args.chrome), str(source_html), str(raw_pdf)], check=True, timeout=90)
         pdf = fitz.open(raw_pdf)
-        labels = ['S-LINK 2.0 規格書・機能表', '生成元']
+        labels = ['S-LiNK 2.0 規格書・機能表', '生成元']
         for text in texts:
             tokens = MarkdownIt('commonmark').parse(text)
             labels.extend(tokens[i + 1].content.replace('`', '') for i, token in enumerate(tokens) if token.type == 'heading_open')
@@ -215,7 +217,7 @@ def main() -> None:
             text_width = font.text_length('DRAFT', fontsize=size)
             point = fitz.Point(center.x - text_width / 2, center.y + (font.ascender + font.descender) * size / 2)
             page.insert_text(point, 'DRAFT', fontsize=size, fontname='hebo', color=(.8, .1, .1), fill_opacity=.10, morph=(center, fitz.Matrix(35)), overlay=True)
-            page.insert_text((45, 21), 'S-LINK 2.0', fontsize=7.5, color=(.25, .25, .25))
+            page.insert_text((45, 21), 'S-LiNK 2.0', fontsize=7.5, color=(.25, .25, .25))
             reference = f'Tag {args.source_tag}' if args.source_tag else f'Source {commits[0][:12]}'
             footer = f'{date} / DRAFT / Rev {revision} / {reference}'
             page.insert_text((45, height - 19), footer, fontsize=7.5, color=(.25, .25, .25))
@@ -223,7 +225,7 @@ def main() -> None:
             page.insert_text((width - 45 - fitz.get_text_length(folio, fontsize=7.5), height - 19), folio, fontsize=7.5, color=(.25, .25, .25))
         metadata = pdf.metadata
         subject = f'文書の版 {revision} / タグ {args.source_tag} / {REPOSITORY}' if args.source_tag else f'文書の版 {revision} / 規格書 {commits[0]} / 機能表 {commits[1]}'
-        metadata.update(title='S-LINK 2.0 規格書・機能表 — DRAFT', author='株式会社ティーファブワークス', subject=subject)
+        metadata.update(title='S-LiNK 2.0 規格書・機能表 — DRAFT', author='株式会社ティーファブワークス', subject=subject)
         pdf.set_metadata(metadata)
         args.output.parent.mkdir(parents=True, exist_ok=True)
         pdf.save(args.output, garbage=4, deflate=True)
