@@ -1,41 +1,41 @@
-# S-LINK 2.0
+# S-LiNK 2.0
 
 **OSや機器の違いを越えて、センサーやモーターを活用するための共通通信規格です。**  
 **A common communication standard for using sensors and motors across different operating systems and devices.**
 
-[S-LINK 公式サイト / Official website](https://s-link.education/)
+[S-LiNK 公式サイト / Official website](https://s-link.education/)
 
 ## 日本語
 
-S-LINKは、教育用フィジカルコンピューティングにおいて、メーカーの異なる機器とソフトウェアを共通の通信方式で接続するための規格です。ハードウェアとソフトウェアの選択肢を広げ、教育現場での利用や教材開発を容易にすることを目指しています。
+S-LiNKは、教育用フィジカルコンピューティングにおいて、メーカーの異なる機器とソフトウェアを共通の通信方式で接続するための規格です。ハードウェアとソフトウェアの選択肢を広げ、教育現場での利用や教材開発を容易にすることを目指しています。
 
 ### 公開資料
 
-現在の文書の版: **0.2（DRAFT、2026-11-04）**。版の一覧は[Releases](https://github.com/s-link/s-link-spec/releases)をご覧ください。
+現在の文書の版: **0.3（DRAFT、2026-11-15）**。版の一覧は[Releases](https://github.com/s-link/s-link-spec/releases)をご覧ください。
 
 | ファイル | 内容 |
 |---|---|
-| [S-LINK 2.0 規格書](S-LINK2.0/S-LINK2.0-規格書.md) | S-LINKの通信部分を実装するための仕様 |
-| [S-LINK 2.0 機能表](S-LINK2.0/S-LINK2.0-機能表.md) | 各機能の番号、単位、データ形式、動作 |
-| [規格書・機能表 DRAFT PDF](S-LINK2.0/S-LINK2.0-規格書・機能表.pdf) | 2文書をまとめた閲覧用PDF。生成元の版を記載 |
+| [S-LiNK 2.0 規格書](S-LiNK2.0/S-LiNK2.0-規格書.md) | S-LiNKの通信部分を実装するための仕様 |
+| [S-LiNK 2.0 機能表](S-LiNK2.0/S-LiNK2.0-機能表.md) | 各機能の番号、単位、データ形式、動作 |
+| [規格書・機能表 DRAFT PDF](S-LiNK2.0/S-LiNK2.0-規格書・機能表.pdf) | 2文書をまとめた閲覧用PDF。生成元の版を記載 |
 
-### S-LINK対応について
+### S-LiNK対応について
 
-S-LINK対応は、実装された機能について共通の通信仕様に従うことを意味します。すべてのS-LINK対応ソフトウェアが、すべての対応デバイスで動作することを保証するものではありません。ソフトウェアや教材の提供者は、対応するデバイスを指定できます。
+S-LiNK対応は、実装された機能について共通の通信仕様に従うことを意味します。すべてのS-LiNK対応ソフトウェアが、すべての対応デバイスで動作することを保証するものではありません。ソフトウェアや教材の提供者は、対応するデバイスを指定できます。
 
 ### ライセンス
 
 このリポジトリの内容（規格書、機能表、PDF）は、[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/deed.ja)で公開します。商用・非商用を問わず、複製・改変・再配布できます。出典表示は義務ではありませんが、歓迎します。詳しくは[LICENSE](LICENSE)をご覧ください。
 
-S-LINKを利用するライブラリ（JavaScript、Pythonなど）は、このリポジトリとは別に公開します。それぞれのライセンスは、各リポジトリに記載します。
+S-LiNKを利用するライブラリ（JavaScript、Pythonなど）は、このリポジトリとは別に公開します。それぞれのライセンスは、各リポジトリに記載します。
 
 CC0は、商標権および特許権を許諾の対象としていません。
 
 ### 名称・ロゴについて
 
-製品やソフトウェアがこの規格に対応していることを説明するために、「S-LINK」の名称を用いることは自由です。許可は必要ありません。
+製品やソフトウェアがこの規格に対応していることを説明するために、「S-LiNK」の名称を用いることは自由です。許可は必要ありません。
 
-S-LINKのロゴ、および認証を示すマークは、上記のライセンスの対象ではありません。利用条件は別途定めます。
+S-LiNKのロゴ、および認証を示すマークは、上記のライセンスの対象ではありません。ロゴは検査・承認を受けた製品のみ使用できるようにする予定です。利用条件は別途定めます。
 
 ### 提案・報告
 
@@ -43,41 +43,41 @@ S-LINKのロゴ、および認証を示すマークは、上記のライセン�
 
 ### 運営
 
-S-LINKは、株式会社ティーファブワークスがAkaDakoの開発過程で考案しました。現在、仕様の公開と管理は同社が行っています。今後、複数のメーカーや教育関係者が参加する運営体制への移行を予定しており、決まり次第このリポジトリで案内します。
+S-LiNKは、株式会社ティーファブワークスがAkaDakoの開発過程で考案しました。現在、仕様の公開と管理は同社が行っています。今後、複数のメーカーや教育関係者が参加する運営体制への移行を予定しており、決まり次第このリポジトリで案内します。
 
 ---
 
 ## English
 
-S-LINK is a communication standard intended to connect educational physical-computing devices and software from different manufacturers through a common protocol. It aims to broaden hardware and software choices and make classroom use and educational content development easier.
+S-LiNK is a communication standard intended to connect educational physical-computing devices and software from different manufacturers through a common protocol. It aims to broaden hardware and software choices and make classroom use and educational content development easier.
 
 ### Published documents
 
-Current document revision: **0.2 (DRAFT, 2026-11-04)**. See [Releases](https://github.com/s-link/s-link-spec/releases) for all revisions.
+Current document revision: **0.3 (DRAFT, 2026-11-15)**. See [Releases](https://github.com/s-link/s-link-spec/releases) for all revisions.
 
 | File | Description |
 |---|---|
-| [S-LINK 2.0 Specification](S-LINK2.0/S-LINK2.0-規格書.md) | Protocol specification for implementing S-LINK communications |
-| [S-LINK 2.0 Function Table](S-LINK2.0/S-LINK2.0-機能表.md) | Function identifiers, units, data formats, and behavior |
-| [Specification and Function Table, DRAFT PDF](S-LINK2.0/S-LINK2.0-規格書・機能表.pdf) | Both documents combined for reading. The source revision is noted inside |
+| [S-LiNK 2.0 Specification](S-LiNK2.0/S-LiNK2.0-規格書.md) | Protocol specification for implementing S-LiNK communications |
+| [S-LiNK 2.0 Function Table](S-LiNK2.0/S-LiNK2.0-機能表.md) | Function identifiers, units, data formats, and behavior |
+| [Specification and Function Table, DRAFT PDF](S-LiNK2.0/S-LiNK2.0-規格書・機能表.pdf) | Both documents combined for reading. The source revision is noted inside |
 
-### What S-LINK compatibility means
+### What S-LiNK compatibility means
 
-S-LINK compatibility means following the common communication specification for the functions implemented by a device. It does **not** guarantee that every S-LINK-compatible application will work with every S-LINK-compatible device. Software and educational content providers may specify which devices they support.
+S-LiNK compatibility means following the common communication specification for the functions implemented by a device. It does **not** guarantee that every S-LiNK-compatible application will work with every S-LiNK-compatible device. Software and educational content providers may specify which devices they support.
 
 ### License
 
 The contents of this repository (the specification, the function table, and the PDF) are published under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/). Copying, modification, and redistribution are permitted, including for commercial purposes. Attribution is appreciated but not required. See [LICENSE](LICENSE) for details.
 
-Libraries that use S-LINK (JavaScript, Python, and others) are published in separate repositories. Each repository states its own license.
+Libraries that use S-LiNK (JavaScript, Python, and others) are published in separate repositories. Each repository states its own license.
 
 CC0 does not grant trademark or patent rights.
 
 ### Name and logo
 
-You may use the name "S-LINK" to state that a product or software supports this specification. No permission is required.
+You may use the name "S-LiNK" to state that a product or software supports this specification. No permission is required.
 
-The S-LINK logo and certification marks are not covered by the license above. Terms for their use will be provided separately.
+The S-LiNK logo and certification marks are not covered by the license above. We plan to allow use of the logo only on products that have passed inspection and approval. Terms for their use will be provided separately.
 
 ### Proposals and reports
 
@@ -85,4 +85,4 @@ Typos, unclear points in the specification, implementation issues, and improveme
 
 ### Governance
 
-S-LINK was designed by TFabWorks during the development of AkaDako. TFabWorks currently publishes and maintains the specification. A transition to a governance structure with multiple manufacturers and education stakeholders is planned, and will be announced in this repository once decided.
+S-LiNK was designed by TFabWorks during the development of AkaDako. TFabWorks currently publishes and maintains the specification. A transition to a governance structure with multiple manufacturers and education stakeholders is planned, and will be announced in this repository once decided.
